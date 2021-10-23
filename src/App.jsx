@@ -9,11 +9,15 @@ import * as userActions from './actions/user';
 import { connect } from 'react-redux';
 
 function App({ user, userActions }) {
+  const [tab, setTab] = React.useState(0);
 
+  const handleChangeTab = (event, newValue) => {
+    setTab(newValue);
+  };
 
   return (
     <>
-      <Header logout={userActions.logout} user={user} />
+      <Header tab={tab} handleChangeTab={handleChangeTab} logout={userActions.logout} user={user} />
      
         <Sidebar />
         <Container>

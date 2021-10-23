@@ -9,6 +9,9 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import Paper from '@material-ui/core/Paper';
 import LoginModal from '../SigningModal';
 import logo from '../../images/logo.png'
 
@@ -70,12 +73,15 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   tools: {
+    marginRight: 0
+  },
+  tabs: {
     marginLeft: 'auto',
     marginRight: 0
   }
 }));
 
-const Header = ({ user, logout }) => {
+const Header = ({ user, logout, tab, handleChangeTab }) => {
   const classes = useStyles();
   const history = useHistory();
   const handleOnClick = useCallback(() => history.push('/'), [history]);
@@ -94,6 +100,17 @@ const Header = ({ user, logout }) => {
       <AppBar elevation={0} className={classes.header} position="static">
         <Toolbar>
           <img src={logo} className={classes.logo} />
+          <Tabs
+            className={classes.tabs}
+            value={tab}
+            indicatorColor="primary"
+            textColor="primary"
+            onChange={handleChangeTab}
+          >
+            <Tab label="Dashboard KPI" />
+            <Tab label="Анализ" />
+            <Tab label="Прогноз" />
+          </Tabs>
           <div className={classes.tools}>
             <div className={classes.search}>
               <div className={classes.searchIcon}>
@@ -109,6 +126,9 @@ const Header = ({ user, logout }) => {
               />
             </div>
           </div>
+
+
+
           {user.isLogged ?
             <Button onClick={logout}>Logout</Button>
             : <Button onClick={handleOpen}>Sign in</Button>}
