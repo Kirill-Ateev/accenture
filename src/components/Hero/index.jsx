@@ -36,24 +36,44 @@ const Hero = ({ dataActions, data: { kpi } }) => {
 
   return (
     <div className={classes.root}>
-      <HeroHeader kpiData={kpi}/>
+      <HeroHeader kpiData={kpi} />
       <Grid container>
-        {kpi.map(elem =>
-          <Grid className={classes.gridImg} key={elem.id} item xs={12} sm={6} >
-            <Card title={elem.name}>
-              {elem.indexes.map(indx =>
-                <CardKpi key={indx.id} title={indx.name}
-                  description={indx.description}
-                  percent={indx.get_actual_value}
-                  changingPercent={indx.actual_value_change}
-                  flag={indx.actual_value_meets_target}
+        <Grid item xs={6} direction="column">
+          {kpi.slice(0, 3).map(elem =>
+            <Grid className={classes.gridImg} key={elem.id} item xs={12} >
+              <Card title={elem.name}>
+                {elem.indexes.map(indx =>
+                  <CardKpi key={indx.id} title={indx.name}
+                    description={indx.description}
+                    percent={indx.get_actual_value}
+                    changingPercent={indx.actual_value_change}
+                    flag={indx.actual_value_meets_target}
 
-                />)}
+                  />)}
 
-            </Card>
-          </Grid>
-        )}
+              </Card>
+            </Grid>
+          )}
 
+        </Grid>
+        <Grid item xs={6} direction="column">
+          {kpi.slice(3, 6).map(elem =>
+            <Grid className={classes.gridImg} key={elem.id} item xs={12} >
+              <Card title={elem.name}>
+                {elem.indexes.map(indx =>
+                  <CardKpi key={indx.id} title={indx.name}
+                    description={indx.description}
+                    percent={indx.get_actual_value}
+                    changingPercent={indx.actual_value_change}
+                    flag={indx.actual_value_meets_target}
+
+                  />)}
+
+              </Card>
+            </Grid>
+          )}
+
+        </Grid>
 
       </Grid>
     </div>

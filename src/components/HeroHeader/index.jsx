@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Container, Grid, Typography } from '@material-ui/core'
+import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 
 const useStyles = makeStyles((theme) => ({
     headerWrapper: {
@@ -21,6 +22,18 @@ const useStyles = makeStyles((theme) => ({
     },
     headerRightContainer: {
         textAlign: '-webkit-right'
+    },
+    flagRed: {
+        color: 'rgba(255, 68, 68, 0.7)',
+        background: 'rgba(255, 68, 68, 0.3)',
+        alignSelf: 'start',
+        boxShadow: '0px 0px 0px 0px #FF4444',
+        borderRadius: '50%',
+        marginRight: 15,
+        marginTop: 6
+    },
+    problemsCountContainer: {
+        display: 'flex',
     }
 }));
 
@@ -45,13 +58,14 @@ const HeroHeader = props => {
                 <Typography>Сегодня {date}, {weekDay}</Typography>
             </div>
 
-                {problemKPINumber > 0 ?
+            {problemKPINumber > 0 ?
                 <div className={classes.headerRightContainer}>
                     <Typography variant="h6">Обратите внимание,</Typography>
-                    <Typography variant="h6">{problemKPINumber} показателей не в норме</Typography>
-                    </div> :
-                    <Typography>{noProblemMessage}</Typography>
-                }
+                    <div className={classes.problemsCountContainer}>
+                        <FiberManualRecordIcon className={classes.flagRed} /><Typography variant="h6">{problemKPINumber} показателей не в норме</Typography></div>
+                </div> :
+                <Typography>{noProblemMessage}</Typography>
+            }
 
         </div>
     )
