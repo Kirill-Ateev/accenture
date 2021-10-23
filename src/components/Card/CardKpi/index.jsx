@@ -67,13 +67,11 @@ const CardKpi = ({ title = '',
 
     return (
         <div className={classes.root}>
-
+            {flag ? <FiberManualRecordIcon className={classes.flagGreen} /> : <FiberManualRecordIcon className={classes.flagRed} />}
             <div className={classes.name}>
-                <span>{flag ? <FiberManualRecordIcon className={classes.flagGreen} /> : <FiberManualRecordIcon className={classes.flagRed} />}
-                    <Typography variant="body1">
-                        {title}
-                    </Typography>
-                </span>
+                <Typography variant="body1">
+                    {title}
+                </Typography>
                 <Typography className={classes.caption} variant="captions">
                     {description}
                 </Typography>
@@ -82,13 +80,13 @@ const CardKpi = ({ title = '',
                 </div>
             </div>
             <span className={classes.percents}>
-                <Typography variant="h4">
-                    {`${changingPercent}%`}
-                </Typography>
-                <Typography className={rise ? classes.green : classes.red} variant="h6">
-                    {`${percent}%`}
-                </Typography>
-                {rise ? <ArrowUpwardIcon className={classes.green} /> : <ArrowDownwardIcon className={classes.red} />}
+            <Typography  variant="h4">
+                {`${changingPercent}%`}
+            </Typography>
+            <Typography className={rise ? classes.green : classes.red} variant="h6">
+                {`${percent}%`}
+            </Typography>
+            {rise ? <ArrowUpwardIcon className={classes.green} /> : <ArrowDownwardIcon className={classes.red}/>}
             </span>
         </div>
     )
