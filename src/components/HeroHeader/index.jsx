@@ -54,7 +54,7 @@ const HeroHeader = props => {
     return (
         <div className={classes.headerWrapper}>
             <div>
-                <Typography variant="h4" className={classes.greeting}>Добрый день!</Typography>
+                <Typography variant="h4" className={classes.greeting}>Добрый день, Виктор Иванович!</Typography>
                 <Typography>Сегодня {date}, {weekDay}</Typography>
             </div>
 

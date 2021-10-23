@@ -19,9 +19,9 @@ export function* getKpiData(action) {
   }
 }
 
-export function* getKpiEntries(action) {
+export function* getKpiEntries({id}) {
     try {
-      const response = yield call(Api.get, 'kpi-entries');
+      const response = yield call(Api.get, `kpi-entries?index=${id}`);
   
       yield put({
         type: types.RECEIVE_KPI_ENTRIES,
@@ -37,4 +37,5 @@ export function* getKpiEntries(action) {
   }
 export default function* watchUsers() {
   yield takeEvery(types.REQUEST_DATA, getKpiData);
+  yield takeEvery(types.REQUEST_KPI_ENTRIES, getKpiEntries);
 }

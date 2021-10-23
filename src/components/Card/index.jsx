@@ -23,12 +23,12 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-const Card = ({ title = '', children }) => {
+const Card = ({ title = '', children, className='' }) => {
     const classes = useStyles();
 
 
     return (
-        <Paper className={classes.card}>
+        <Paper className={className ? className : classes.card}>
             <div className={classes.title}>
                 <Typography className={classes.title} variant="h5">
                     {capitalizeFirstLetter(title)}

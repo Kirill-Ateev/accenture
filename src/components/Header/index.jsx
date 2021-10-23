@@ -14,6 +14,7 @@ import Tab from '@material-ui/core/Tab';
 import Paper from '@material-ui/core/Paper';
 import LoginModal from '../SigningModal';
 import logo from '../../images/logo.png'
+import Avatar from '@material-ui/core/Avatar';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -78,6 +79,12 @@ const useStyles = makeStyles((theme) => ({
   tabs: {
     marginLeft: 'auto',
     marginRight: 0
+  },
+  avatar: {
+    marginLeft: 28,
+    minHeight: 100,
+    borderRadius: 36,
+    padding: '26px 36px'
   }
 }));
 
@@ -127,11 +134,12 @@ const Header = ({ user, logout, tab, handleChangeTab }) => {
             </div>
           </div>
 
-
-
-          {user.isLogged ?
+          
+          <Avatar className={classes.avatar} src="https://www.nicepng.com/png/detail/340-3400381_smiling-man-smiling-man-face-png.png">VI</Avatar>
+          
+          {/* {user.isLogged ?
             <Button onClick={logout}>Logout</Button>
-            : <Button onClick={handleOpen}>Sign in</Button>}
+            : <Button onClick={handleOpen}>Sign in</Button>} */}
         </Toolbar>
       </AppBar>
       <LoginModal open={open} handleClose={handleClose} />
