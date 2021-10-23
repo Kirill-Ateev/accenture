@@ -82,9 +82,6 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     marginLeft: 28,
-    minHeight: 100,
-    borderRadius: 36,
-    padding: '26px 36px'
   }
 }));
 

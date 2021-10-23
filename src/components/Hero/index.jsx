@@ -1,4 +1,11 @@
-import { Container, Grid, LinearProgress, Paper, Typography, Avatar  } from '@material-ui/core';
+import {
+  Container,
+  Grid,
+  LinearProgress,
+  Paper,
+  Typography,
+  Avatar,
+} from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import { bindActionCreators } from 'redux';
 import * as dataActions from '../../actions/data';
@@ -33,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: `0px 0px 34px 4px rgba(255, 31, 31, 0.2)`,
     height: 400,
     borderRadius: 36,
-    padding: '26px 36px'
+    padding: '26px 36px',
   },
   title: {
     color: 'rgba(0, 0, 0, 0.5)',
@@ -68,6 +75,13 @@ const Hero = ({ dataActions, data: { kpi }, tab }) => {
                   Суммарная аналитика
                 </Typography>
               </div>
+              <Typography>Произошли резкие изменения в показателях:</Typography>
+              <Typography>
+              · Графикование ГЦ: следование календарному плану 
+              </Typography>
+              <Typography>
+              · % составления ССЗ
+              </Typography>
             </Paper>
           </div>
           <Grid container>
