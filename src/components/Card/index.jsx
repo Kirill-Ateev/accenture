@@ -13,12 +13,11 @@ const useStyles = makeStyles((theme) => ({
     card: {
         minHeight: 100,
         borderRadius: 36,
-        padding: 25
+        padding: '26px 36px'
     },
     eyeIcon: {
         float: 'right',
-        paddingTop: 5,
-        paddingRight: 30
+        paddingTop: 5
     }
 }));
 

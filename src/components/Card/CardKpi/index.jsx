@@ -6,6 +6,7 @@ import RemoveIcon from '@material-ui/icons/Remove';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import { makeStyles } from '@material-ui/core/styles';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import StarBorderIcon from '@material-ui/icons/StarBorder';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -35,13 +36,14 @@ const useStyles = makeStyles((theme) => ({
     },
     caption: {
         fontSize: '13px',
+        paddingRight: 80,
     },
     expand: {
         marginLeft: -4,
         marginTop: 6
     },
     name: {
-        maxWidth: 400
+        fontWeight: 600,
     },
     red: {
         color: 'rgba(255, 68, 68, 0.7)'
@@ -53,7 +55,8 @@ const useStyles = makeStyles((theme) => ({
         marginTop: -34,
         display: 'flex',
         alignItems: 'center',
-        flexWrap: 'nowrap'
+        flexWrap: 'nowrap',
+        marginLeft: 'auto'
     },
     percentItem: {
         marginRight: 15
@@ -80,15 +83,15 @@ const CardKpi = ({ title = '',
         <div className={classes.root}>
             {flag ? <FiberManualRecordIcon className={classes.flagGreen} /> : <FiberManualRecordIcon className={classes.flagRed} />}
             <div>
-                <div className={classes.name}>
-                    <Typography variant="body1">
+                <div >
+                    <Typography className={classes.name} variant="body1">
                         {title}
                     </Typography>
                     <Typography className={classes.caption} variant="caption">
                         {description}
                     </Typography>
                     <div className={classes.expand}>
-                        <ExpandMoreIcon />
+                        <ExpandMoreIcon /> <StarBorderIcon />
                     </div>
                 </div>
             </div>
