@@ -7,7 +7,7 @@ import { capitalizeFirstLetter } from '../../functions/capitalizeFirstLetter';
 const useStyles = makeStyles((theme) => ({
     title: {
         color: 'rgba(0, 0, 0, 0.5)',
-        fontWeight: 600,
+        fontWeight: 750,
         marginBottom: 16,
     },
     card: {

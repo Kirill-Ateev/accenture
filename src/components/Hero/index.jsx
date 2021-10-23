@@ -34,7 +34,7 @@ const Hero = ({ dataActions, data: { kpi } }) => {
 
   return (
     <div className={classes.root}>
-      <Grid container>
+      <Grid container >
         {kpi.map(elem =>
           <Grid className={classes.gridImg} key={elem.id} item xs={12} sm={6} >
             <Card title={elem.name}>

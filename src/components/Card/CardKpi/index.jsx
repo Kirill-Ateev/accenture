@@ -18,18 +18,20 @@ const useStyles = makeStyles((theme) => ({
     flagRed: {
         color: 'red',
         background: 'rgba(255, 68, 68, 0.3)',
+        alignSelf: 'start',
         boxShadow: '0px 0px 0px 0px #FF4444',
         borderRadius: '50%',
         marginRight: 15,
-        marginTop: -68
+        marginTop: 2
     },
     flagGreen: {
         color: 'green',
         background: '#ADEAC2',
+        alignSelf: 'start',
         boxShadow: '0px 0px 0px 0px #A4FFC3',
         borderRadius: '50%',
         marginRight: 15,
-        marginTop: -68
+        marginTop: 2
     },
     caption: {
         fontSize: '13px',
@@ -42,19 +44,28 @@ const useStyles = makeStyles((theme) => ({
         maxWidth: 400
     },
     red: {
-        color: 'red'
+        color: 'rgba(255, 68, 68, 0.7)'
     },
     green: {
-        color: 'green'
+        color: '#ADEAC2'
     },
     percents: {
         marginTop: -34,
         display: 'flex',
-        alignItems: 'center'
+        alignItems: 'center',
+        flexWrap: 'nowrap'
     },
     percentItem: {
+        marginRight: 15
+    },
+    percentItemGreen: {
         marginRight: 15,
-    }
+        color: 'green'
+    },
+    percentItemRed: {
+        marginRight: 15,
+        color: 'red'
+    },
 }));
 
 const CardKpi = ({ title = '',
@@ -68,25 +79,27 @@ const CardKpi = ({ title = '',
     return (
         <div className={classes.root}>
             {flag ? <FiberManualRecordIcon className={classes.flagGreen} /> : <FiberManualRecordIcon className={classes.flagRed} />}
-            <div className={classes.name}>
-                <Typography variant="body1">
-                    {title}
-                </Typography>
-                <Typography className={classes.caption} variant="captions">
-                    {description}
-                </Typography>
-                <div className={classes.expand}>
-                    <ExpandMoreIcon />
+            <div>
+                <div className={classes.name}>
+                    <Typography variant="body1">
+                        {title}
+                    </Typography>
+                    <Typography className={classes.caption} variant="caption">
+                        {description}
+                    </Typography>
+                    <div className={classes.expand}>
+                        <ExpandMoreIcon />
+                    </div>
                 </div>
             </div>
             <span className={classes.percents}>
-            <Typography  variant="h4">
-                {`${changingPercent}%`}
-            </Typography>
-            <Typography className={rise ? classes.green : classes.red} variant="h6">
-                {`${percent}%`}
-            </Typography>
-            {rise ? <ArrowUpwardIcon className={classes.green} /> : <ArrowDownwardIcon className={classes.red}/>}
+                <Typography className={classes.percentItem} variant="h4">
+                    {`${changingPercent}%`}
+                </Typography>
+                <Typography className={rise ? classes.percentItemGreen : classes.percentItemRed} variant="h6">
+                    {`${percent}%`}
+                </Typography>
+                {rise ? <ArrowUpwardIcon className={classes.green} /> : <ArrowDownwardIcon className={classes.red} />}
             </span>
         </div>
     )
