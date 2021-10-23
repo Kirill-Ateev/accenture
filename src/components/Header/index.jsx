@@ -19,7 +19,7 @@ import Avatar from '@material-ui/core/Avatar';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    paddingLeft: 80
+    paddingLeft: 82
   },
   logo: {
     marginTop: -8,
@@ -74,11 +74,12 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   tools: {
-    marginRight: 0
+    marginRight: 0,
+    color: '#7F7FD5'
   },
   tabs: {
     marginLeft: 'auto',
-    marginRight: 0
+    marginRight: 35
   },
   avatar: {
     marginLeft: 28,
@@ -112,8 +113,8 @@ const Header = ({ user, logout, tab, handleChangeTab }) => {
             onChange={handleChangeTab}
           >
             <Tab label="Dashboard KPI" />
-            <Tab label="Анализ" />
-            <Tab label="Прогноз" />
+            <Tab label="План" />
+            <Tab label="Анализ причин ПП" />
           </Tabs>
           <div className={classes.tools}>
             <div className={classes.search}>

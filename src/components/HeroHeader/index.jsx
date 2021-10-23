@@ -9,7 +9,6 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: 'space-between',
         height: 60,
         paddingTop: 50,
-        paddingBottom: 37,
         paddingLeft: 47,
         paddingRight: 47,
     },
@@ -44,8 +43,8 @@ const getProblemKPINumber = kpiData => {
 
 const HeroHeader = props => {
     const classes = useStyles();
-    const date = "6 октября"; // moment
-    const weekDay = "среда";
+    const date = "7 октября"; // moment
+    const weekDay = "четверг";
 
     getProblemKPINumber(props.kpiData);
     const problemKPINumber = getProblemKPINumber(props.kpiData);
@@ -54,18 +53,11 @@ const HeroHeader = props => {
     return (
         <div className={classes.headerWrapper}>
             <div>
-                <Typography variant="h4" className={classes.greeting}>Добрый день, Виктор Иванович!</Typography>
+                <Typography variant="h4" className={classes.greeting}>Добрый день, Виктор!</Typography>
                 <Typography>Сегодня {date}, {weekDay}</Typography>
             </div>
 
-            {problemKPINumber > 0 ?
-                <div className={classes.headerRightContainer}>
-                    <Typography variant="h6">Обратите внимание,</Typography>
-                    <div className={classes.problemsCountContainer}>
-                        <FiberManualRecordIcon className={classes.flagRed} /><Typography variant="h6">{problemKPINumber} показателей не в норме</Typography></div>
-                </div> :
-                <Typography>{noProblemMessage}</Typography>
-            }
+           
 
         </div>
     )

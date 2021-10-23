@@ -4,7 +4,7 @@ import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import RemoveIcon from '@material-ui/icons/Remove';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
-import {makeStyles} from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import { Line } from 'react-chartjs-2';
@@ -105,8 +105,6 @@ const CardKpi = ({
   const classes = useStyles();
   const [showChart, setShowChart] = React.useState(false);
 
-  const [isFavourite, toggleFavorite] = useState(false);
-  
   const data = {
     labels: ['1', '2', '3', '4', '5', '6'],
     datasets: [
@@ -144,9 +142,9 @@ const CardKpi = ({
               {description}
             </Typography>
             <div>
-            <Typography className={classes.caption} variant="caption">
-              {`(норма ${target})`}
-            </Typography>
+              <Typography className={classes.caption} variant="caption">
+                {`(норма ${target})`}
+              </Typography>
             </div>
             <div className={classes.expand}>
               <ExpandMoreIcon
@@ -155,15 +153,13 @@ const CardKpi = ({
                 }
                 onClick={() => {
                   setShowChart(!showChart);
-                //   setCurrentChartId(id);
+                  //   setCurrentChartId(id);
                 }}
               />
-              {isFavourite ?
-                            <StarIcon onClick={() => toggleFavorite(prevState => !prevState)}/>
-                            : <StarBorderIcon onClick={() => toggleFavorite(prevState => !prevState)}/>}
+              <Favorite />
             </div>
           </div>
-        </div> 
+        </div>
         <span className={classes.percents}>
           <Typography className={classes.percentItem} variant="h4">
             {`${changingPercent}%`}
@@ -187,6 +183,16 @@ const CardKpi = ({
         </div>
       )}
     </div>
+  );
+};
+
+const Favorite = () => {
+  const [isFavourite, toggleFavorite] = useState(false);
+
+  return isFavourite ? (
+    <StarIcon onClick={() => toggleFavorite((prevState) => !prevState)} />
+  ) : (
+    <StarBorderIcon onClick={() => toggleFavorite((prevState) => !prevState)} />
   );
 };
 
