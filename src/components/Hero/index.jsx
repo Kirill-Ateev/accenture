@@ -5,6 +5,7 @@ import * as dataActions from '../../actions/data';
 import { connect } from 'react-redux';
 import Card from '../Card';
 import { makeStyles } from '@material-ui/core/styles';
+import HeroHeader from "../HeroHeader";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,6 +28,7 @@ const Hero = ({ dataActions, data: { kpi } }) => {
 
   return (
     <div className={classes.root}>
+      <HeroHeader kpiData={kpi}/>
       <Grid container>
         {kpi && kpi.map(elem =>
           <Grid className={classes.gridImg} item xs={12} sm={6} >

@@ -17,7 +17,8 @@ const useStyles = makeStyles((theme) => ({
         background: 'white',
         width: 80,
         height: '100%',
-        bottom: 0
+        bottom: 0,
+        borderRadius: 0
     },
     hamburgerWrapper: {
         display: 'flex',
