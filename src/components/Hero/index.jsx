@@ -199,7 +199,7 @@ const Hero = ({ dataActions, data: { kpi }, tab }) => {
                     </Typography>
                   </div>
                   <Typography className={classes.subText}>
-                    · Уровень резервирвоания ССЗ
+                    · Уровень резервирования ССЗ
                   </Typography>
                 </div>
               </div>
