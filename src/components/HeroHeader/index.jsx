@@ -1,5 +1,5 @@
 import React from 'react';
-import {makeStyles} from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import { Container, Grid, Typography } from '@material-ui/core'
 
 const useStyles = makeStyles((theme) => ({
@@ -17,7 +17,10 @@ const useStyles = makeStyles((theme) => ({
         color: '#7F7FD5'
     },
     status: {
-        width: 200
+        // width: 400
+    },
+    headerRightContainer: {
+        textAlign: '-webkit-right'
     }
 }));
 
@@ -33,22 +36,23 @@ const HeroHeader = props => {
 
     getProblemKPINumber(props.kpiData);
     const problemKPINumber = getProblemKPINumber(props.kpiData);
-    const problemStatusMessage = "Обратите внимание,\n" + `${problemKPINumber} показателей не в норме`;
-    const noProblemMessage = "Все показатели в норме!";
-    console.log("pr", problemKPINumber);
+
 
     return (
         <div className={classes.headerWrapper}>
             <div>
-            <Typography variant="h4" className={classes.greeting}>Добрый день!</Typography>
-            <Typography>Сегодня {date}, {weekDay}</Typography>
+                <Typography variant="h4" className={classes.greeting}>Добрый день!</Typography>
+                <Typography>Сегодня {date}, {weekDay}</Typography>
             </div>
-            <div className={classes.status}>
+
                 {problemKPINumber > 0 ?
-                    problemStatusMessage :
-                    noProblemMessage
+                <div className={classes.headerRightContainer}>
+                    <Typography variant="h6">Обратите внимание,</Typography>
+                    <Typography variant="h6">{problemKPINumber} показателей не в норме</Typography>
+                    </div> :
+                    <Typography>{noProblemMessage}</Typography>
                 }
-            </div>
+
         </div>
     )
 }

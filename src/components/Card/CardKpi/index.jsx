@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
         width: '100%',
     },
     flagRed: {
-        color: 'red',
+        color: 'rgba(255, 68, 68, 0.7)',
         background: 'rgba(255, 68, 68, 0.3)',
         alignSelf: 'start',
         boxShadow: '0px 0px 0px 0px #FF4444',
@@ -26,8 +26,8 @@ const useStyles = makeStyles((theme) => ({
         marginTop: 2
     },
     flagGreen: {
-        color: 'green',
-        background: '#ADEAC2',
+        color: '#63ff99',
+        background: '#d7fce4',
         alignSelf: 'start',
         boxShadow: '0px 0px 0px 0px #A4FFC3',
         borderRadius: '50%',
@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
         fontWeight: 600,
     },
     red: {
-        color: 'rgba(255, 68, 68, 0.7)'
+        color: 'rgba(255, 68, 68, 0.9)'
     },
     green: {
         color: '#ADEAC2'
