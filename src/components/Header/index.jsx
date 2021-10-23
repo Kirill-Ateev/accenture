@@ -9,7 +9,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
-import LoginModal from '../SigningModal/LoginModal';
+import LoginModal from '../SigningModal';
 
 const useStyles = makeStyles((theme) => ({
   root: {

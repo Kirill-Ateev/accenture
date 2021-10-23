@@ -1,6 +1,6 @@
 import React from 'react';
 import Dialog from '@material-ui/core/Dialog';
-import SignIn from '../Login/SignIn';
+import SignIn from '../Login';
 import { bindActionCreators } from 'redux';
 import * as userActions from '../../actions/user';
 import { connect } from 'react-redux';

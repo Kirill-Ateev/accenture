@@ -1,7 +1,7 @@
 import { LinearProgress } from '@material-ui/core';
 import React, { useState, useEffect } from 'react'
 import { Route } from 'react-router-dom';
-import Header from './components/Header/Header'
+import Header from './components/Header'
 import { bindActionCreators } from 'redux';
 import * as userActions from './actions/user';
 import { connect } from 'react-redux';
