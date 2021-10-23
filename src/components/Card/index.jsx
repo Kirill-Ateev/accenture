@@ -1,29 +1,37 @@
-import { Paper } from '@material-ui/core'
+import { Paper, Typography } from '@material-ui/core'
 import React from 'react'
-import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import RemoveRedEyeIcon from '@material-ui/icons/RemoveRedEye';
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
     title: {
-      flexGrow: 1,
-      cursor: 'pointer',
+        paddingTop: 10,
+        paddingLeft: 30,
     },
     card: {
-        borderRadius: 10
+        minHeight: 100,
+        borderRadius: 36
+    },
+    eyeIcon: {
+        float: 'right',
+        paddingTop: 10,
+        paddingRight: 30
     }
-  }));
+}));
 
-const Card = ({title = '', children}) => {
-const classes = useStyles();
+const Card = ({ title = '', children }) => {
+    const classes = useStyles();
 
     return (
         <Paper className={classes.card}>
             <div className={classes.title}>
-            <Typography variant="h2">
-               {title}
-            </Typography>
-            <RemoveRedEyeIcon />
+                <Typography variant="h4">
+                    {title}
+                    <RemoveRedEyeIcon className={classes.eyeIcon} />
+                </Typography>
+
             </div>
-           {children}
+            {children}
         </Paper>
     )
 }
