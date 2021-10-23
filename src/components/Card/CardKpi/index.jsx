@@ -4,10 +4,11 @@ import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import RemoveIcon from '@material-ui/icons/Remove';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import { Line } from 'react-chartjs-2';
+import StarIcon from '@material-ui/icons/Star';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -104,6 +105,8 @@ const CardKpi = ({
   const classes = useStyles();
   const [showChart, setShowChart] = React.useState(false);
 
+  const [isFavourite, toggleFavorite] = useState(false);
+  
   const data = {
     labels: ['1', '2', '3', '4', '5', '6'],
     datasets: [
@@ -155,7 +158,9 @@ const CardKpi = ({
                 //   setCurrentChartId(id);
                 }}
               />
-              <StarBorderIcon />
+              {isFavourite ?
+                            <StarIcon onClick={() => toggleFavorite(prevState => !prevState)}/>
+                            : <StarBorderIcon onClick={() => toggleFavorite(prevState => !prevState)}/>}
             </div>
           </div>
         </div> 
