@@ -15,7 +15,7 @@ import logo from '../../images/logo.png'
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    paddingLeft: 106
+    paddingLeft: 80
   },
   logo: {
     marginTop: -8,
