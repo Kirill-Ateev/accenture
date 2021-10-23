@@ -10,24 +10,29 @@ import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
 import LoginModal from '../SigningModal';
+import logo from '../../images/logo.png'
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    paddingLeft: 106
+  },
+  logo: {
+    marginTop: -8,
+    cursor: 'pointer'
+  },
+  header: {
+    background: 'white',
   },
   menuButton: {
     marginRight: theme.spacing(2),
   },
-  title: {
-    flexGrow: 1,
-    cursor: 'pointer',
-  },
   search: {
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 0.15),
+    backgroundColor: fade(theme.palette.common.black, 0.15),
     '&:hover': {
-      backgroundColor: fade(theme.palette.common.white, 0.25),
+      backgroundColor: fade(theme.palette.common.black, 0.25),
     },
     marginLeft: 0,
     width: '100%',
@@ -61,11 +66,14 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
+  tools: {
+    marginLeft: 'auto',
+    marginRight: 0
+  }
 }));
 
 const Header = ({ user, logout }) => {
   const classes = useStyles();
-  const [drawer, setDrawer] = useState(false)
   const history = useHistory();
   const handleOnClick = useCallback(() => history.push('/'), [history]);
   const [open, setOpen] = React.useState(false);
@@ -80,30 +88,27 @@ const Header = ({ user, logout }) => {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar elevation={0} className={classes.header} position="static">
         <Toolbar>
-          <IconButton onClick={() => { setDrawer(true) }} edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton>
-          <Typography onClick={handleOnClick} variant="h6" className={classes.title}>
-            Accenture
-          </Typography>
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
+          <img src={logo} className={classes.logo} />
+          <div className={classes.tools}>
+            <div className={classes.search}>
+              <div className={classes.searchIcon}>
+                <SearchIcon />
+              </div>
+              <InputBase
+                placeholder="Search…"
+                classes={{
+                  root: classes.inputRoot,
+                  input: classes.inputInput,
+                }}
+                inputProps={{ 'aria-label': 'search' }}
+              />
             </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ 'aria-label': 'search' }}
-            />
           </div>
           {user.isLogged ?
-            <Button color="inherit" onClick={logout}>Logout</Button>
-            : <Button color="inherit" onClick={handleOpen}>Sign in</Button>}
+            <Button onClick={logout}>Logout</Button>
+            : <Button onClick={handleOpen}>Sign in</Button>}
         </Toolbar>
       </AppBar>
       <LoginModal open={open} handleClose={handleClose} />
