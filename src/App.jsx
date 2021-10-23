@@ -18,9 +18,9 @@ function App({ user, userActions }) {
   return (
     <>
       <Header tab={tab} handleChangeTab={handleChangeTab} logout={userActions.logout} user={user} />
-     
-        <Sidebar />
-        <Container>
+
+      <Sidebar />
+      <Container>
         <Hero maxWidth="sm" />
       </Container>
     </>
