@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     },
     eyeIcon: {
         float: 'right',
-        paddingTop: 10,
+        paddingTop: 5,
         paddingRight: 30
     }
 }));
@@ -25,11 +25,10 @@ const Card = ({ title = '', children }) => {
     return (
         <Paper className={classes.card}>
             <div className={classes.title}>
-                <Typography variant="h4">
+                <Typography variant="h5">
                     {title}
                     <RemoveRedEyeIcon className={classes.eyeIcon} />
                 </Typography>
-
             </div>
             {children}
         </Paper>

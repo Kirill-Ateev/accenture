@@ -30,7 +30,7 @@ export default class Api {
           defaultHeaders = {};
         }
 
-        defaultHeaders['Authorization'] = `Bearer ${localStorage.getItem('token')}`
+        // defaultHeaders['Authorization'] = `Bearer ${localStorage.getItem('token')}`
       }
 
       let url = notApiUrl ? endpoint : `${API_URL}/${endpoint}`;

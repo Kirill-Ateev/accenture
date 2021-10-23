@@ -4,7 +4,6 @@ import * as types from '../constants/actionTypes';
 
 export function* getKpiData(action) {
   try {
-      console.log('123')
     const response = yield call(Api.get, 'kpi-dashboard');
 
     yield put({

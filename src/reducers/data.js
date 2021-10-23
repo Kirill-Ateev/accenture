@@ -4,7 +4,7 @@ import {
   NOT_RECEIVE_DATA,
 } from '../constants/actionTypes';
 
-export default function user(
+export default function data(
   state = {
     isFetching: false,
     kpi: null,

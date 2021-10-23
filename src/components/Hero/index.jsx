@@ -11,11 +11,14 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: 82
   },
   gridImg: {
-
+    marginTop: 25,
+    marginTop: 30,
+    paddingLeft: 15,
+    paddingRight: 15
   }
 }));
 
-const Hero = ({dataActions}) => {
+const Hero = ({ dataActions, data: { kpi } }) => {
   const classes = useStyles();
 
   useEffect(() => {
@@ -24,12 +27,15 @@ const Hero = ({dataActions}) => {
 
   return (
     <div className={classes.root}>
-      <Grid container >
-        <Grid className={classes.gridImg} item xs={12} sm={6} >
-          <Card title={'123'}>
-            test
-          </Card>
-        </Grid>
+      <Grid container>
+        {kpi && kpi.map(elem =>
+          <Grid className={classes.gridImg} item xs={12} sm={6} >
+            <Card title={elem.name}>
+              test
+            </Card>
+          </Grid>
+        )}
+
 
       </Grid>
     </div>

@@ -4,12 +4,12 @@ export default function fetchJSON(url, options = {}) {
   return new Promise((resolve, reject) => {
     fetch(url, options)
       .then((response) => {
-        if (response.status === 401) {
-          //TODO: add interceptor
-          console.log(401, 'ERROR SERV');
-          Api.post('refresh').then((x) => console.log(x));
-          return;
-        }
+        // if (response.status === 401) {
+        //   //TODO: add interceptor
+        //   console.log(401, 'ERROR SERV');
+        //   Api.post('refresh').then((x) => console.log(x));
+        //   return;
+        // }
 
         const isJSON =
           response.headers.get('content-type').indexOf('application/json') !==
