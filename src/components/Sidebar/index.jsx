@@ -3,6 +3,7 @@ import Paper from '@material-ui/core/Paper';
 import MenuIcon from '@material-ui/icons/Menu';
 // import makeStyles from '@material-ui/styles';
 import { makeStyles, fade } from '@material-ui/core/styles';
+import SidebarToggle from "../SidebarToggle/SidebarToggle";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -37,10 +38,11 @@ const Sidebar = () => {
     return (
         <div className={classes.root}>
             {/*<Paper elevation={0}/>*/}
-            <Paper className={classes.sidebar}>
+            <Paper elevation={0} className={classes.sidebar}>
                 <div className={classes.hamburgerWrapper}>
                     <MenuIcon className={classes.hamburger}/>
                 </div>
+                <SidebarToggle/>
             </Paper>
         </div>
     );

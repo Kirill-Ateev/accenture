@@ -1,12 +1,13 @@
-import React from 'react'
-import { Container, Grid, Typography } from '@material-ui/core'
+import React, {useState} from 'react'
+import {Container, Grid, Typography} from '@material-ui/core'
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import RemoveIcon from '@material-ui/icons/Remove';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
+import StarIcon from '@material-ui/icons/Star';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -71,19 +72,24 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const CardKpi = ({ title = '',
-    description = '',
-    percent = '',
-    changingPercent = '',
-    flag = '',
-    rise = '' }) => {
+const CardKpi = ({
+                     title = '',
+                     description = '',
+                     percent = '',
+                     changingPercent = '',
+                     flag = '',
+                     rise = ''
+                 }) => {
     const classes = useStyles();
+
+    const [isFavourite, toggleFavorite] = useState(false);
 
     return (
         <div className={classes.root}>
-            {flag ? <FiberManualRecordIcon className={classes.flagGreen} /> : <FiberManualRecordIcon className={classes.flagRed} />}
+            {flag ? <FiberManualRecordIcon className={classes.flagGreen}/> :
+                <FiberManualRecordIcon className={classes.flagRed}/>}
             <div>
-                <div >
+                <div>
                     <Typography className={classes.name} variant="body1">
                         {title}
                     </Typography>
@@ -91,7 +97,10 @@ const CardKpi = ({ title = '',
                         {description}
                     </Typography>
                     <div className={classes.expand}>
-                        <ExpandMoreIcon /> <StarBorderIcon />
+                        <ExpandMoreIcon/>
+                        {isFavourite ?
+                            <StarIcon onClick={() => toggleFavorite(prevState => !prevState)}/>
+                            : <StarBorderIcon onClick={() => toggleFavorite(prevState => !prevState)}/>}
                     </div>
                 </div>
             </div>
@@ -102,7 +111,7 @@ const CardKpi = ({ title = '',
                 <Typography className={rise ? classes.percentItemGreen : classes.percentItemRed} variant="h6">
                     {`${percent}%`}
                 </Typography>
-                {rise ? <ArrowUpwardIcon className={classes.green} /> : <ArrowDownwardIcon className={classes.red} />}
+                {rise ? <ArrowUpwardIcon className={classes.green}/> : <ArrowDownwardIcon className={classes.red}/>}
             </span>
         </div>
     )
