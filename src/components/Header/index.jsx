@@ -23,7 +23,9 @@ const useStyles = makeStyles((theme) => ({
   },
   header: {
     background: 'white',
-    height: 80
+    height: 80,
+    display: 'flex',
+    justifyContent: 'center'
   },
   menuButton: {
     marginRight: theme.spacing(2),
