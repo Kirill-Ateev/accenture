@@ -3,13 +3,10 @@ import Paper from '@material-ui/core/Paper';
 import MenuIcon from '@material-ui/icons/Menu';
 // import makeStyles from '@material-ui/styles';
 import { makeStyles, fade } from '@material-ui/core/styles';
-import SidebarToggle from "../SidebarToggle/SidebarToggle";
+import SidebarToggle from "../SidebarToggle";
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        // display: 'absolute'
-       // paddingLeft: 0
-       //  paddingTop: 80px
     },
     sidebar: {
         position: 'fixed',
