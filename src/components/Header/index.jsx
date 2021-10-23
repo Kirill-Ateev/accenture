@@ -23,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
   header: {
     background: 'white',
+    height: 80
   },
   menuButton: {
     marginRight: theme.spacing(2),
