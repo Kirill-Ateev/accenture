@@ -12,18 +12,18 @@ const useStyles = makeStyles((theme) => ({
     }
   }));
 
-const Card = ({title = ''}) => {
+const Card = ({title = '', children}) => {
 const classes = useStyles();
 
     return (
         <Paper className={classes.card}>
             <div className={classes.title}>
-            <Typography variant="h1">
+            <Typography variant="h2">
                {title}
             </Typography>
             <RemoveRedEyeIcon />
             </div>
-
+           {children}
         </Paper>
     )
 }

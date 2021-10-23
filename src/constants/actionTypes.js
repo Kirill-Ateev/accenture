@@ -7,6 +7,9 @@ export const LOGOUT = 'LOGOUT';
 export const CLEAR_USER = "CLEAR_USER"
 export const NOT_CLEAR_USER = "NOT_CLEAR_USER"
 
+//Data
+export const REQUEST_DATA = 'REQUEST_DATA';
+
 //Network
 export const NETWORK_ERROR = 'NETWORK_ERROR';
 export const NETWORK_ACCESS_DENIED = 'NETWORK_ACCESS_DENIED';
