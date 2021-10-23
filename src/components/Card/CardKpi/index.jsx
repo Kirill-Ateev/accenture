@@ -101,29 +101,51 @@ const CardKpi = ({
   rise = '',
   target,
   setCurrentChartId,
+  kpi,
+  entries = []
 }) => {
   const classes = useStyles();
   const [showChart, setShowChart] = React.useState(false);
 
-  const data = {
-    labels: ['1', '2', '3', '4', '5', '6'],
-    datasets: [
-      {
-        label: title,
-        data: [
-          getRandomArbitrary(0, 100),
-          getRandomArbitrary(0, 100),
-          getRandomArbitrary(0, 100),
-          getRandomArbitrary(0, 100),
-          getRandomArbitrary(0, 100),
-          getRandomArbitrary(0, 100),
-        ],
-        fill: false,
-        backgroundColor: !flag ? 'rgb(255 99 132 / 80%)' : '#d7fce4',
-        borderColor: !flag ? 'rgb(255 99 132 / 50%)' : '#d7fce4',
-      },
-    ],
-  };
+  // const data = {
+  //   labels: [
+  //     '09.30.2021',
+  //     '10.01.2021',
+  //     '10.04.2021',
+  //     '10.05.2021',
+  //     '10.06.2021',
+  //   ],
+  //   datasets: [
+  //     {
+  //       label: title,
+  //       data: [
+  //         getRandomArbitrary(0, 100),
+  //         getRandomArbitrary(0, 100),
+  //         getRandomArbitrary(0, 100),
+  //         getRandomArbitrary(0, 100),
+  //         getRandomArbitrary(0, 100),
+  //       ],
+  //       fill: false,
+  //       backgroundColor: !flag ? 'rgb(255 99 132 / 80%)' : '#d7fce4',
+  //       borderColor: !flag ? 'rgb(255 99 132 / 50%)' : '#d7fce4',
+  //     },
+  //   ],
+  // };
+
+
+    const data = {
+      labels: entries.length ? entries.map((x) => x.date) : [],
+      datasets: [
+        {
+          label: title,
+          data: entries.length ? entries.map((x) => x.value): [],
+          fill: false,
+          backgroundColor: !flag ? 'rgb(255 99 132 / 80%)' : '#d7fce4',
+          borderColor: !flag ? 'rgb(255 99 132 / 50%)' : '#d7fce4',
+        },
+      ],
+    };
+
 
   return (
     <div>
@@ -153,7 +175,7 @@ const CardKpi = ({
                 }
                 onClick={() => {
                   setShowChart(!showChart);
-                  //   setCurrentChartId(id);
+                  setCurrentChartId(id);
                 }}
               />
               <Favorite />
@@ -177,7 +199,7 @@ const CardKpi = ({
           )}
         </span>
       </div>
-      {showChart && (
+      {showChart && entries.length > 0 && (
         <div className={classes.chartContainer}>
           <Line data={data} options={options} />
         </div>

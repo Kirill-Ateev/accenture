@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
   },
   summaryCard: {
     boxShadow: `0px 0px 34px 4px rgba(255, 31, 31, 0.2)`,
-    height: 400,
+    height: 'fit-content',
     borderRadius: 36,
     padding: '26px 36px',
   },
@@ -128,9 +128,9 @@ const Hero = ({ dataActions, data: { kpi }, tab }) => {
     dataActions.getKpiData();
   }, []);
 
-  // useEffect(() => {
-  //   if (currentChartId !== null) dataActions.getKpiEntries(currentChartId);
-  // }, [currentChartId]);
+  useEffect(() => {
+    if (currentChartId !== null) dataActions.getKpiEntries(currentChartId);
+  }, [currentChartId]);
 
   if (!kpi) return <LinearProgress className={classes.progress} />;
 
@@ -153,7 +153,7 @@ const Hero = ({ dataActions, data: { kpi }, tab }) => {
                     <div className={classes.problemsCountContainer}>
                       <FiberManualRecordIcon className={classes.flagRed} />
                       <Typography className={classes.red} variant="h6">
-                        {problemKPINumber}/16 показателей не в норме
+                        8/12 показателей не в норме
                       </Typography>
                     </div>
                   </div>
@@ -206,7 +206,7 @@ const Hero = ({ dataActions, data: { kpi }, tab }) => {
             </Paper>
           </div>
           <Grid container>
-            <Grid item xs={6} direction="column">
+            <Grid item xs={12} md={6} direction="column">
               {kpi.slice(0, 3).map((elem) => (
                 <Grid className={classes.gridImg} key={elem.id} item xs={12}>
                   <Card title={elem.name}>
@@ -219,15 +219,18 @@ const Hero = ({ dataActions, data: { kpi }, tab }) => {
                         description={indx.description}
                         percent={indx.value_difference}
                         changingPercent={indx.get_actual_value}
+                        rise={indx.actual_value_rise}
                         flag={indx.actual_value_meets_target}
                         target={indx.target_value_with_sign}
+                        kpi={kpi}
+                        entries={indx.entries}
                       />
                     ))}
                   </Card>
                 </Grid>
               ))}
             </Grid>
-            <Grid item xs={6} direction="column">
+            <Grid item xs={12} md={6} direction="column">
               {kpi.slice(3, 6).map((elem) => (
                 <Grid className={classes.gridImg} key={elem.id} item xs={12}>
                   <Card title={elem.name}>
@@ -235,11 +238,16 @@ const Hero = ({ dataActions, data: { kpi }, tab }) => {
                       <CardKpi
                         key={indx.id}
                         title={indx.name}
+                        id={indx.id}
+                        setCurrentChartId={setCurrentChartId}
                         description={indx.description}
                         percent={indx.value_difference}
                         changingPercent={indx.get_actual_value}
-                        flag={indx.actual_value_rise}
+                        rise={indx.actual_value_rise}
+                        flag={indx.actual_value_meets_target}
                         target={indx.target_value_with_sign}
+                        kpi={kpi}
+                        entries={indx.entries}
                       />
                     ))}
                   </Card>

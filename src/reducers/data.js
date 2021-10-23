@@ -36,7 +36,7 @@ export default function data(
         errors: action.errors,
       };
 
-      case REQUEST_KPI_ENTRIES:
+    case REQUEST_KPI_ENTRIES:
       return {
         ...state,
         isFetching: true,
@@ -46,7 +46,18 @@ export default function data(
       return {
         ...state,
         isFetching: false,
-        kpi: state.kpi.map(elem=> elem.id === action.id ? {...elem, entries: action.entries} : elem),
+        kpi: state.kpi.map((elem) =>
+          elem.indexes.some((x) => x.id === action.id)
+            ? {
+                ...elem,
+                indexes: elem.indexes.map((index) =>
+                  index.id === action.id
+                    ? { ...index, entries: action.entries }
+                    : index
+                ),
+              }
+            : elem
+        ),
       };
 
     case NOT_RECEIVE_KPI_ENTRIES:
