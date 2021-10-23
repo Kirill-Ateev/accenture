@@ -1,10 +1,11 @@
 import { fork, all, take, cancel } from 'redux-saga/effects';
 import watchUsers from './users';
-
+import watchData from './data';
 
 export default () =>
   all([
     fork(watchUsers),
+    fork(watchData),
   ]);
 
 export function createDynamicSaga(changeActionType, startingSagas) {

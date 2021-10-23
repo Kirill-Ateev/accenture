@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { Route } from 'react-router-dom';
 import Header from './components/Header'
 import Sidebar from './components/Sidebar'
+import Hero from './components/Hero'
 import { bindActionCreators } from 'redux';
 import * as userActions from './actions/user';
 import { connect } from 'react-redux';
@@ -13,7 +14,11 @@ function App({ user, userActions }) {
   return (
     <>
       <Header logout={userActions.logout} user={user} />
+
       <Sidebar/>
+
+      <Hero />
+
     </>
   );
 }

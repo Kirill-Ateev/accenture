@@ -4,8 +4,16 @@ export const REQUEST_USER = 'REQUEST_USER';
 export const RECEIVE_USER = 'RECEIVE_USER';
 export const NOT_RECEIVE_USER = 'NOT_RECEIVE_USER';
 export const LOGOUT = 'LOGOUT';
-export const CLEAR_USER = "CLEAR_USER"
-export const NOT_CLEAR_USER = "NOT_CLEAR_USER"
+export const CLEAR_USER = 'CLEAR_USER';
+export const NOT_CLEAR_USER = 'NOT_CLEAR_USER';
+
+//Data
+export const REQUEST_DATA = 'REQUEST_DATA';
+export const RECEIVE_DATA = 'RECEIVE_DATA';
+export const NOT_RECEIVE_DATA = 'NOT_RECEIVE_DATA';
+export const REQUEST_KPI_ENTRIES = 'REQUEST_KPI_ENTRIES';
+export const RECEIVE_KPI_ENTRIES = 'RECEIVE_KPI_ENTRIES';
+export const NOT_RECEIVE_KPI_ENTRIES = 'NOT_RECEIVE_KPI_ENTRIES';
 
 //Network
 export const NETWORK_ERROR = 'NETWORK_ERROR';

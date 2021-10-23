@@ -47,6 +47,8 @@ export default class Api {
         ...opts
       });
 
+      console.log(json)
+
       return json;
     } catch (error) {
       return Promise.reject(error);
