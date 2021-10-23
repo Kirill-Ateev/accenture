@@ -1,4 +1,4 @@
-import { LinearProgress } from '@material-ui/core';
+import { LinearProgress, Container } from '@material-ui/core';
 import React, { useState, useEffect } from 'react'
 import { Route } from 'react-router-dom';
 import Header from './components/Header'
@@ -14,11 +14,11 @@ function App({ user, userActions }) {
   return (
     <>
       <Header logout={userActions.logout} user={user} />
-
-      <Sidebar/>
-
-      <Hero />
-
+     
+        <Sidebar />
+        <Container>
+        <Hero maxWidth="sm" />
+      </Container>
     </>
   );
 }

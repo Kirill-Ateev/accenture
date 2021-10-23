@@ -11,8 +11,7 @@ const useStyles = makeStyles((theme) => ({
        //  paddingTop: 80px
     },
     sidebar: {
-        position: 'absolute',
-        display: 'flex',
+        position: 'fixed',
         direction: 'column',
         background: 'white',
         width: 80,
