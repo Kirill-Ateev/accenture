@@ -1,0 +1,1 @@
+export const API_URL = 'https://sncfg-server-pr-1.herokuapp.com/api/'
