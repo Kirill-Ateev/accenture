@@ -12,6 +12,7 @@ const useStyles = makeStyles((theme) => ({
     },
     card: {
         minHeight: 100,
+        width: 'fit-content',
         borderRadius: 36,
         padding: '26px 36px'
     },

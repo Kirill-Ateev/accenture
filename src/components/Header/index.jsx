@@ -107,6 +107,8 @@ const Header = ({ user, logout, tab, handleChangeTab }) => {
           <img src={logo} className={classes.logo} />
           <Tabs
             className={classes.tabs}
+            variant="scrollable"
+          scrollButtons="auto"
             value={tab}
             indicatorColor="primary"
             textColor="primary"

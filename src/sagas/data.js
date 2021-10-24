@@ -25,12 +25,13 @@ export function* getKpiEntries({id}) {
   
       yield put({
         type: types.RECEIVE_KPI_ENTRIES,
-        kpi: response,
+        id,
+        entries: response,
       });
     } catch (error) {
       yield put({
         type: types.NOT_RECEIVE_KPI_ENTRIES,
-        errors: response
+        errors: []
       });
       yield put({ type: types.NETWORK_ERROR, error });
     }
