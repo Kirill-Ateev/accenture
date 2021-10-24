@@ -29,4 +29,4 @@ prod: yarn start
 Атеев Кирилл, tg: @bgdshka\
 Антон Александрин, tg: @a_palych
 
-Бэкенд и docker-compose - https://github.com/e-kondr01/accenture-case-2021 
+Бэкенд и CI/CD - https://github.com/e-kondr01/accenture-case-2021 
