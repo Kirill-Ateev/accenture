@@ -12,6 +12,6 @@ export function deleteToken() {
     // TODO: remove token in cookie at all
     path: '/',
     domain: '.' + window.location.host,
-    expires: -1
+    expires: -1,
   });
 }

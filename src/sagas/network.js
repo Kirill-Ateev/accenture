@@ -4,17 +4,17 @@ import {
   unauthorized,
   accessDenied,
   serverError,
-  defaultError
+  defaultError,
 } from '../constants/networkErrors';
 
 function* updateError(action) {
   try {
     let {
       error,
-      error: { status }
+      error: { status },
     } = action;
 
-    const errorsState = yield select(state => state.network.errors);
+    const errorsState = yield select((state) => state.network.errors);
 
     if (status === 401) {
       if (errorsState.includes(unauthorized)) return;
@@ -35,7 +35,6 @@ function* updateError(action) {
       // TODO: handle messages
       yield put({ type: types.NETWORK_BAD_REQUEST });
     }
-
   } catch (error) {
     yield put({ type: types.RESET_NETWORK_ERRORS });
   }

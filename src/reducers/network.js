@@ -17,7 +17,6 @@ import {
   badRequest,
 } from '../constants/networkErrors';
 
-// TODO: refactor, reduce code
 export default function network(
   state = {
     errors: [],

@@ -5,25 +5,25 @@ import { bindActionCreators } from 'redux';
 import * as userActions from '../../actions/user';
 import { connect } from 'react-redux';
 
-const  LoginModal = ({open, handleClose, userActions, login, user}) => {
-
+const LoginModal = ({ open, handleClose, userActions, login, user }) => {
   return (
     <>
       <Dialog
         disableScrollLock={true}
         open={open}
         onClose={handleClose}
-        aria-labelledby="form-dialog-title">
+        aria-labelledby="form-dialog-title"
+      >
         <SignIn handleLogin={userActions.login} />
       </Dialog>
     </>
   );
-}
+};
 
 function mapStateToProps() {
-  const mapStateToProps = state => {
+  const mapStateToProps = (state) => {
     return {
-      user: state.user
+      user: state.user,
     };
   };
   return mapStateToProps;
@@ -31,11 +31,8 @@ function mapStateToProps() {
 
 function mapDispatchToProps(dispatch) {
   return {
-    userActions: bindActionCreators(userActions, dispatch)
+    userActions: bindActionCreators(userActions, dispatch),
   };
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(LoginModal);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginModal);

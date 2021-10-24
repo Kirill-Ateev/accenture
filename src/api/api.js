@@ -1,23 +1,26 @@
-import * as axios from "axios";
-import { API_URL } from "../constants/constantValues";
+import * as axios from 'axios';
+import { API_URL } from '../constants/constantValues';
 import fetchJSON from '../functions/fetchJSON';
 import { getCookie } from '../functions/manageCookie';
-
-
 
 export default class Api {
   static async fetch(method, endpoint, options = {}) {
     try {
-      let { headers, isForm, data, notApiUrl, locale,  ...opts } = options;
+      let { headers, isForm, data, notApiUrl, locale, ...opts } = options;
       let defaultHeaders = {
         Accept: 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       };
       let body;
 
-      if (locale) defaultHeaders["Accept-Language"] = locale;
+      if (locale) defaultHeaders['Accept-Language'] = locale;
 
-      if (method === 'post' || method === 'put' || method === 'delete' || method === 'get') {
+      if (
+        method === 'post' ||
+        method === 'put' ||
+        method === 'delete' ||
+        method === 'get'
+      ) {
         const isFormData = data instanceof FormData;
         const isJSON = data instanceof Object && data.constructor === Object;
 
@@ -39,15 +42,15 @@ export default class Api {
         credentials: 'same-origin',
         headers: {
           ...defaultHeaders,
-         // ...getAuthorizationHeaders(),
-          ...headers
+          // ...getAuthorizationHeaders(),
+          ...headers,
         },
         method,
         body,
-        ...opts
+        ...opts,
       });
 
-      console.log(json)
+      console.log(json);
 
       return json;
     } catch (error) {

@@ -11,10 +11,7 @@ const sagaMiddleware = createSagaMiddleware();
 const logger = createLogger();
 
 export default function configureStore(initialState) {
-  const middleware = [
-    sagaMiddleware,
-    DEBUG && logger
-  ].filter(Boolean);
+  const middleware = [sagaMiddleware, DEBUG && logger].filter(Boolean);
 
   let composeEnhancers = compose;
   if (DEBUG) {
@@ -28,18 +25,18 @@ export default function configureStore(initialState) {
   );
   sagaMiddleware.run(createDynamicSaga('SET_SAGAS', getSagas()));
 
-//   if (module.hot) {
-//     // Enable Webpack hot module replacement for reducers
-//     module.hot.accept('../reducers', () => {
-//       const nextReducer = require('../reducers/index');
-//       store.replaceReducer(nextReducer);
-//     });
+  //   if (module.hot) {
+  //     // Enable Webpack hot module replacement for reducers
+  //     module.hot.accept('../reducers', () => {
+  //       const nextReducer = require('../reducers/index');
+  //       store.replaceReducer(nextReducer);
+  //     });
 
-//     module.hot.accept('../sagas', () => {
-//       const getNewSagas = require('../sagas/index');
-//       store.dispatch({ type: 'SET_SAGAS', sagas: getNewSagas() });
-//     });
-//   }
+  //     module.hot.accept('../sagas', () => {
+  //       const getNewSagas = require('../sagas/index');
+  //       store.dispatch({ type: 'SET_SAGAS', sagas: getNewSagas() });
+  //     });
+  //   }
 
   return store;
 }

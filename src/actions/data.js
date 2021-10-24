@@ -7,4 +7,3 @@ export function getKpiData() {
 export function getKpiEntries(id) {
   return { type: types.REQUEST_KPI_ENTRIES, id };
 }
-

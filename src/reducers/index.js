@@ -4,9 +4,9 @@ import network from './network';
 import data from './data';
 
 let reducers = combineReducers({
-    user,
-    data,
-    network
-  });
+  user,
+  data,
+  network,
+});
 
 export default reducers;

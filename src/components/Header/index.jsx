@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState, useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
 import { makeStyles, fade } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -13,23 +13,23 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Paper from '@material-ui/core/Paper';
 import LoginModal from '../SigningModal';
-import logo from '../../images/logo.png'
+import logo from '../../images/logo.png';
 import Avatar from '@material-ui/core/Avatar';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    paddingLeft: 82
+    paddingLeft: 82,
   },
   logo: {
     marginTop: -8,
-    cursor: 'pointer'
+    cursor: 'pointer',
   },
   header: {
     background: 'white',
     height: 80,
     display: 'flex',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -75,15 +75,15 @@ const useStyles = makeStyles((theme) => ({
   },
   tools: {
     marginRight: 0,
-    color: '#7F7FD5'
+    color: '#7F7FD5',
   },
   tabs: {
     marginLeft: 'auto',
-    marginRight: 35
+    marginRight: 35,
   },
   avatar: {
     marginLeft: 28,
-  }
+  },
 }));
 
 const Header = ({ user, logout, tab, handleChangeTab }) => {
@@ -108,7 +108,7 @@ const Header = ({ user, logout, tab, handleChangeTab }) => {
           <Tabs
             className={classes.tabs}
             variant="scrollable"
-          scrollButtons="auto"
+            scrollButtons="auto"
             value={tab}
             indicatorColor="primary"
             textColor="primary"
@@ -134,9 +134,13 @@ const Header = ({ user, logout, tab, handleChangeTab }) => {
             </div>
           </div>
 
-          
-          <Avatar className={classes.avatar} src="https://www.nicepng.com/png/detail/340-3400381_smiling-man-smiling-man-face-png.png">VI</Avatar>
-          
+          <Avatar
+            className={classes.avatar}
+            src="https://www.nicepng.com/png/detail/340-3400381_smiling-man-smiling-man-face-png.png"
+          >
+            VI
+          </Avatar>
+
           {/* {user.isLogged ?
             <Button onClick={logout}>Logout</Button>
             : <Button onClick={handleOpen}>Sign in</Button>} */}
@@ -145,6 +149,6 @@ const Header = ({ user, logout, tab, handleChangeTab }) => {
       <LoginModal open={open} handleClose={handleClose} />
     </div>
   );
-}
+};
 
 export default Header;

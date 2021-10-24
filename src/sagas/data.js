@@ -13,29 +13,29 @@ export function* getKpiData(action) {
   } catch (error) {
     yield put({
       type: types.NOT_RECEIVE_DATA,
-      errors: response
+      errors: response,
     });
     yield put({ type: types.NETWORK_ERROR, error });
   }
 }
 
-export function* getKpiEntries({id}) {
-    try {
-      const response = yield call(Api.get, `kpi-entries?index=${id}`);
-  
-      yield put({
-        type: types.RECEIVE_KPI_ENTRIES,
-        id,
-        entries: response,
-      });
-    } catch (error) {
-      yield put({
-        type: types.NOT_RECEIVE_KPI_ENTRIES,
-        errors: []
-      });
-      yield put({ type: types.NETWORK_ERROR, error });
-    }
+export function* getKpiEntries({ id }) {
+  try {
+    const response = yield call(Api.get, `kpi-entries?index=${id}`);
+
+    yield put({
+      type: types.RECEIVE_KPI_ENTRIES,
+      id,
+      entries: response,
+    });
+  } catch (error) {
+    yield put({
+      type: types.NOT_RECEIVE_KPI_ENTRIES,
+      errors: [],
+    });
+    yield put({ type: types.NETWORK_ERROR, error });
   }
+}
 export default function* watchUsers() {
   yield takeEvery(types.REQUEST_DATA, getKpiData);
   yield takeEvery(types.REQUEST_KPI_ENTRIES, getKpiEntries);

@@ -102,7 +102,7 @@ const CardKpi = ({
   target,
   setCurrentChartId,
   kpi,
-  entries = []
+  entries = [],
 }) => {
   const classes = useStyles();
   const [showChart, setShowChart] = React.useState(false);
@@ -132,20 +132,18 @@ const CardKpi = ({
   //   ],
   // };
 
-
-    const data = {
-      labels: entries.length ? entries.map((x) => x.date) : [],
-      datasets: [
-        {
-          label: title,
-          data: entries.length ? entries.map((x) => x.value): [],
-          fill: false,
-          backgroundColor: !flag ? 'rgb(255 99 132 / 80%)' : '#d7fce4',
-          borderColor: !flag ? 'rgb(255 99 132 / 50%)' : '#d7fce4',
-        },
-      ],
-    };
-
+  const data = {
+    labels: entries.length ? entries.map((x) => x.date) : [],
+    datasets: [
+      {
+        label: title,
+        data: entries.length ? entries.map((x) => x.value) : [],
+        fill: false,
+        backgroundColor: !flag ? 'rgb(255 99 132 / 80%)' : '#d7fce4',
+        borderColor: !flag ? 'rgb(255 99 132 / 50%)' : '#d7fce4',
+      },
+    ],
+  };
 
   return (
     <div>

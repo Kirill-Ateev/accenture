@@ -11,4 +11,3 @@ export function requestProfile() {
 export function logout() {
   return { type: types.LOGOUT };
 }
-
