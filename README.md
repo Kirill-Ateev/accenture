@@ -26,7 +26,7 @@ prod: yarn start
 
 **Разработчики**
 
-Атеев Кирилл, tg: @bgdshka\
+Атеев Кирилл, tg: @kirill_ateev\
 Антон Александрин, tg: @a_palych
 
 Бэкенд и CI/CD - https://github.com/e-kondr01/accenture-case-2021 
